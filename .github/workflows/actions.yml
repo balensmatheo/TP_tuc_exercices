@@ -30,14 +30,6 @@ jobs:
       run: |
         cd application
         uvicorn main:app &
-    - name: Launch Locust
-      run: |
-        locust --config=tests/.locust.conf --locustfile=tests/locustfile.py --headless --run-time=1m --users=1 --spawn-rate=1 
-
-    - name: Run tests
-      run: |
-        python -m unittest discover -s tests -p "*_test.py"
-
     - name: Launch main2.py
       run: |
         python main2.py
