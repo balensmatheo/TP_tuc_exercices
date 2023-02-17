@@ -31,5 +31,5 @@ jobs:
         uvicorn main:app &
     - name: Launch Locust
       run: |
-        locust --config=./tests/locustfile.py 
+        locust --config=tests/.locust.conf
 
