@@ -30,6 +30,9 @@ jobs:
       run: |
         cd application
         uvicorn main:app &
+    - name: Install Selenium 
+      run: |
+        pip install selenium
     - name: Launch main2.py
       run: |
         python main2.py
