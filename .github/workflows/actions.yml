@@ -28,8 +28,8 @@ jobs:
         coverage xml
     - name: Launch App
       run: |
-        uvicorn main:app --reload &
+        uvicorn main:app &
     - name: Launch Locust
       run: |
-        locust --config=.locust.conf
+        locust --config=./tests/locustfile.py 
 
