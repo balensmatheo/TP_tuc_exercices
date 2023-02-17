@@ -29,6 +29,9 @@ jobs:
     - name: Launch App
       run: |
         uvicorn main:app &
+    - name: wait for app to start
+      run: |
+        sleep 10
     - name: Launch Locust
       run: |
         locust --config=tests/.locust.conf
