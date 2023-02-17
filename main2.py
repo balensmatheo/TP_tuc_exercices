@@ -1,13 +1,27 @@
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
-
+import chromedriver_autoinstaller
 # Path: selenium/webdriver.py
 
-driver = webdriver.Chrome()
-option = driver.create_options()
-option.add_argument('--headless')
-driver = webdriver.Chrome(options=option)
+chromedriver_autoinstaller.install()
+# i want to add options
+chrome_options = webdriver.ChromeOptions()    
+options = [
+    "--ignore-certificate-errors"
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    '--remote-debugging-port=9222'
+]
 
+for option in options:
+    chrome_options.add_argument(option)
+
+driver = webdriver.Chrome(options = chrome_options)
 
 def get_random_wiki():
     driver.get('https://wikiroulette.co/')
