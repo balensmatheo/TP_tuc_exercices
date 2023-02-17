@@ -32,5 +32,11 @@ jobs:
         uvicorn main:app &
     - name: Launch Locust
       run: |
-        locust --config=tests/.locust.conf --headless --run-time=1m --host=http://128.0.0.1:8000 
+        locust --config=tests/.locust.conf --locustfile=tests/locustfile.py --headless --run-time=1m --users=1 --spawn-rate=1 
+
+    - name: Run tests
+      run: |
+        python -m unittest discover -s tests -p "*_test.py"
+
+  
 
