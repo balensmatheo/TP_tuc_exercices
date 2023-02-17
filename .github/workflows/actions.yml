@@ -28,6 +28,7 @@ jobs:
         coverage xml
     - name: Launch App
       run: |
+        cd application
         uvicorn main:app &
     - name: wait for app to start
       run: |
