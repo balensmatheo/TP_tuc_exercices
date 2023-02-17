@@ -26,6 +26,9 @@ jobs:
         coverage run -m unittest discover
         coverage report -m
         coverage xml
+    - name: Launch App
+      run: |
+        uvicorn main:app --reload & 
     - name: Launch Locust
       run: |
-        locust -f locustfile.py --headless --host=http://localhost:5000 --users=10 --spawn-rate=1 --run-time=1m --csv=locust
+        locust -f ./tests/locustfile.py --headless --host=http://
