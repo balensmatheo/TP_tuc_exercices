@@ -20,4 +20,16 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint $(git ls-files '*.py') --file-under=4
+    - name: Check code coverage
+      run: |
+        coverage run -m unittest discover
+        coverage report -m
+        coverage xml
+        coverage html
+        coverage-badge -o coverage.svg
+        cp coverage.svg README.md
+        git add README.md
+        git commit -m "Update coverage badge"
+        git push
+        
