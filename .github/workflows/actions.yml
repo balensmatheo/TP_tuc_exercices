@@ -31,4 +31,4 @@ jobs:
         uvicorn main:app --reload & 
     - name: Launch Locust
       run: |
-        locust -f ./tests/locustfile.py --headless --host=http://
+        locust --config=tests/.locust.conf
