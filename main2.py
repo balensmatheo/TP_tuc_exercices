@@ -2,7 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 # Path: selenium/webdriver.py
-driver = webdriver.Chrome() 
+
+driver = webdriver.Chrome()
+option = driver.create_options()
+option.add_argument('--headless')
+driver = webdriver.Chrome(options=option)
+
 
 def get_random_wiki():
     driver.get('https://wikiroulette.co/')
