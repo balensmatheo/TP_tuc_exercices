@@ -28,7 +28,8 @@ jobs:
         coverage xml
     - name: Launch App
       run: |
-        uvicorn main:app --reload & 
+        uvicorn main:app --reload &
     - name: Launch Locust
       run: |
-        locust --config=tests/.locust.conf --headless --run-time=1m --host=http://128.0.0.1:8000 --csv=tests/locust 
+        locust --config=.locust.conf
+
