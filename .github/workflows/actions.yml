@@ -25,7 +25,6 @@ jobs:
       run: |
         coverage run -m unittest discover
         coverage report -m
-        coverage xm
     - name: Launch main2.py
       run: |
         python main2.py
