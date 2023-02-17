@@ -25,11 +25,7 @@ jobs:
       run: |
         coverage run -m unittest discover
         coverage report -m
-        coverage xml
-    - name: Launch App
-      run: |
-        cd application
-        uvicorn main:app &
+        coverage xm
     - name: Install Selenium 
       run: |
         pip install selenium
