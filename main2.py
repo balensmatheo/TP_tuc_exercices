@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 def get_random_wiki():
     driver = webdriver.Chrome() 
     driver.get('https://wikiroulette.co/')
-    page_title = driver.title
+    page_title = driver.find_element(By.ID, 'firstHeading')
     driver.quit()
     return page_title
 
